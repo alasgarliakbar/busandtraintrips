@@ -1,26 +1,70 @@
-<div id="search-section">
-  <!-- Include the search form here -->
-  <form id="search-form">
-    <label for="trip-type">Trip Type:</label>
-    <select id="trip-type" name="trip-type">
-      <option value="one-way">One-way</option>
-      <option value="return">Return</option>
-    </select>
+<!-- Combined Home and Search Page -->
+<div id="home-page">
+  <div id="search-section">
+    <h1>Find Your Perfect Route</h1>
+    <p>Set your travel preferences above to discover the best transport options.</p>
+    <form id="search-form">
+      <!-- Search fields -->
+      <label for="trip-type">Trip Type:</label>
+      <select id="trip-type" name="trip-type">
+        <option value="one-way">One-way</option>
+        <option value="return">Return</option>
+      </select>
 
-    <div id="return-dates" style="display: none;">
-      <label for="departure-date">Departure Date:</label>
-      <input type="date" id="departure-date" name="departure-date">
-      <label for="return-date">Return Date:</label>
-      <input type="date" id="return-date" name="return-date">
+      <div id="return-dates" style="display: none;">
+        <label for="departure-date">Departure Date:</label>
+        <input type="date" id="departure-date" name="departure-date">
+        <label for="return-date">Return Date:</label>
+        <input type="date" id="return-date" name="return-date">
+      </div>
+
+      <button type="button" id="passengers-button">Passengers</button>
+      <div id="passenger-options" style="display: none;">
+        <label>Adults (12+ years):</label>
+        <input type="number" id="adults" name="adults" min="0" value="1">
+        <label>Children (2-11 years):</label>
+        <input type="number" id="children" name="children" min="0" value="0">
+        <label>Infants (0-2 years):</label>
+        <input type="number" id="infants" name="infants" min="0" value="0">
+      </div>
+
+      <button type="button" id="advanced-options-button">Advanced Options</button>
+      <div id="advanced-options" style="display: none;">
+        <label>Luggage Options:</label>
+        <input type="number" id="luggage" name="luggage" min="0" value="0">
+        <label>Class Selection:</label>
+        <select id="class-selection" name="class-selection">
+          <option value="economy">Economy</option>
+          <option value="1st-class">1st Class</option>
+          <option value="2nd-class">2nd Class</option>
+          <option value="sleeper">Sleeper</option>
+        </select>
+        <label>Max Budget (€):</label>
+        <input type="number" id="max-budget" name="max-budget" min="0">
+        <label>Max Duration (hours):</label>
+        <input type="number" id="max-duration" name="max-duration" min="0">
+        <label>Departure Time:</label>
+        <select id="departure-time" name="departure-time">
+          <option value="anytime">Anytime</option>
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+          <option value="night">Night</option>
+        </select>
+        <label>Select Operator:</label>
+        <input type="text" id="operator" name="operator" placeholder="e.g., Flixbus, OEBB">
+      </div>
+
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <div id="suggestions-section" style="margin-top: 20px;">
+    <h2>Travel Suggestions</h2>
+    <div id="suggestions-container">
+      <!-- Suggestions will be dynamically loaded here -->
     </div>
-
-    <label for="passengers">Passengers:</label>
-    <input type="number" id="adults" name="adults" placeholder="Adults">
-    <input type="number" id="children" name="children" placeholder="Children">
-    <input type="number" id="infants" name="infants" placeholder="Infants">
-
-    <button type="submit">Search</button>
-  </form>
+  </div>
 </div>
 
 <script>
@@ -33,4 +77,27 @@
       returnDates.style.display = 'none';
     }
   });
+
+  // Show/hide passenger options
+  document.getElementById('passengers-button').addEventListener('click', function () {
+    const passengerOptions = document.getElementById('passenger-options');
+    passengerOptions.style.display = passengerOptions.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Show/hide advanced options
+  document.getElementById('advanced-options-button').addEventListener('click', function () {
+    const advancedOptions = document.getElementById('advanced-options');
+    advancedOptions.style.display = advancedOptions.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Dynamically load suggestions
+  function loadSuggestions() {
+    const suggestionsContainer = document.getElementById('suggestions-container');
+    suggestionsContainer.innerHTML = `
+      <div class="suggestion-item">Suggestion 1</div>
+      <div class="suggestion-item">Suggestion 2</div>
+      <div class="suggestion-item">Suggestion 3</div>
+    `;
+  }
+  loadSuggestions();
 </script>

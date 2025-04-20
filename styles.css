@@ -32,8 +32,9 @@ button:hover {
 
 /* Ensure the search section doesn't block scrolling */
 #search-section {
-  position: relative;
-  z-index: 1;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
 }
 
 .header {
