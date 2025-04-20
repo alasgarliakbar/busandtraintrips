@@ -1,0 +1,39 @@
+<div id="search-section">
+  <!-- Include the search form directly here -->
+  <form id="search-form">
+    <label for="trip-type">Trip Type:</label>
+    <select id="trip-type" name="trip-type">
+      <option value="one-way">One-way</option>
+      <option value="return">Return</option>
+    </select>
+
+    <div id="return-dates" style="display: none;">
+      <label for="departure-date">Departure Date:</label>
+      <input type="date" id="departure-date" name="departure-date">
+
+      <label for="return-date">Return Date:</label>
+      <input type="date" id="return-date" name="return-date">
+    </div>
+
+    <label for="passengers">Passengers:</label>
+    <div id="passenger-inputs">
+      <input type="number" id="adults" name="adults" placeholder="Adults" min="1">
+      <input type="number" id="children" name="children" placeholder="Children" min="0">
+      <input type="number" id="infants" name="infants" placeholder="Infants" min="0">
+    </div>
+
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<script>
+  // Show/hide return date fields based on trip type
+  document.getElementById('trip-type').addEventListener('change', function () {
+    const returnDates = document.getElementById('return-dates');
+    if (this.value === 'return') {
+      returnDates.style.display = 'block';
+    } else {
+      returnDates.style.display = 'none';
+    }
+  });
+</script>

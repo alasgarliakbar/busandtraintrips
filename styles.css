@@ -1,0 +1,26 @@
+:root {
+  --primary-color: #40E0D0; /* Turquoise */
+  --secondary-color: #001F54; /* Navy Blue */
+  --accent-color: #800020; /* Burgundy */
+}
+
+/* Update components to use the new color variables */
+body {
+  background-color: var(--primary-color);
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+#search-results {
+  max-height: 400px; /* Adjust as needed */
+  overflow-y: auto;
+}
+
+/* Ensure the search section doesn't block scrolling */
+#search-section {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="details-container">
+    <!-- Fetch and display details dynamically -->
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    // Fetch and display details based on the ID
+    fetch(`/api/details/${id}`)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('details-container');
+        container.innerHTML = `
+          <h1>${data.name}</h1>
+          <p>Type: ${data.type}</p>
+          <p>Description: ${data.description}</p>
+        `;
+      });
+  </script>
+</body>
+</html>
