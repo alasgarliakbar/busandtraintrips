@@ -8,7 +8,10 @@
 </head>
 <body>
   <div id="details-container">
-    <!-- Fetch and display details dynamically -->
+    <h1>Details</h1>
+    <div id="details-content">
+      <!-- Details will be dynamically loaded here -->
+    </div>
   </div>
 
   <script>
@@ -16,12 +19,12 @@
     const id = params.get('id');
 
     // Fetch and display details based on the ID
-    fetch(`/api/details/${id}`)
+    fetch(`/api/details?id=${id}`)
       .then(response => response.json())
       .then(data => {
-        const container = document.getElementById('details-container');
-        container.innerHTML = `
-          <h1>${data.name}</h1>
+        const detailsContent = document.getElementById('details-content');
+        detailsContent.innerHTML = `
+          <p>Name: ${data.name}</p>
           <p>Type: ${data.type}</p>
           <p>Description: ${data.description}</p>
         `;

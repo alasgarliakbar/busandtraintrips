@@ -3,12 +3,12 @@ function displaySearchResults(results) {
   resultsContainer.innerHTML = '';
 
   results.forEach(result => {
-    const resultElement = document.createElement('div');
-    resultElement.classList.add('result-item');
-    resultElement.innerHTML = `
+    const resultItem = document.createElement('div');
+    resultItem.className = 'result-item';
+    resultItem.innerHTML = `
       <p>${result.name} (${result.type === 'bus' ? 'Bus' : 'Train'})</p>
       <button class="details-button" data-id="${result.id}">Details</button>
     `;
-    resultsContainer.appendChild(resultElement);
+    resultsContainer.appendChild(resultItem);
   });
 }
