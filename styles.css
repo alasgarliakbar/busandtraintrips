@@ -1,17 +1,28 @@
+/* Define the new color scheme variables */
 :root {
   --primary-color: #40E0D0; /* Turquoise */
-  --secondary-color: #001F54; /* Navy Blue */
+  --secondary-color: #000080; /* Navy Blue */
   --accent-color: #800020; /* Burgundy */
 }
 
-/* Update components to use the new color variables */
+/* Example usage of the new colors */
 body {
   background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 button {
   background-color: var(--accent-color);
   color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 #search-results {
@@ -23,4 +34,14 @@ button {
 #search-section {
   position: relative;
   z-index: 1;
+}
+
+.header {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.footer {
+  background-color: var(--accent-color);
+  color: white;
 }
