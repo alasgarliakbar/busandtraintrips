@@ -1,5 +1,4 @@
 {
-  "extends": "@expo/tsconfig.base", // Base configuration from Expo
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
@@ -9,19 +8,22 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    ".expo/types/**/*.ts", // Remove if this doesn't exist
-    "expo-env.d.ts",       // Remove if this doesn't exist
-    "nativewind-env.d.ts"  // Remove if this doesn't exist
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "nativewind-env.d.ts"
   ],
   "exclude": [
     "node_modules",
     "build",
     "dist"
-  ]
+  ],
+  "extends": "expo/tsconfig.base"
 }
